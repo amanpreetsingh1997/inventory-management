@@ -1,0 +1,75 @@
+`<html lang="en" xmlns:th="http://www.thyme.org">
+<head>
+<title>This is Admin DashBoard</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+		<div class="alert alert-primary" th:if="${session.message}" th:classappend="${session.message.type}" role="alert">
+  			<p th:text="${session.message.content}"></p>
+  			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
+<form action="" class="form-horizontal" th:action="@{/admin/add_to_do_existing}" method="post" th:object="${product}">
+<fieldset>
+
+<!-- Form Name -->
+<legend>ADD PRODUCTS</legend>
+
+<!-- Text input-->
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="brand">Brand Name</label>  
+  <div class="col-md-4">
+  <input oninput="this.value = this.value.toUpperCase()" id="brand_name" name="brand_name" placeholder="Brand" class="form-control input-md" required type="text"
+  />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>  
+  <div class="col-md-4">
+  <input oninput="this.value = this.value.toUpperCase()" id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required type="text"
+  />
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="available_quantity">QUANTITY TO BE UPDATED</label>  
+  <div class="col-md-4">
+  <input id="quantity" name="quantity" placeholder="QUANTITY" class="form-control input-md" required type="text"/>
+  </div>
+</div>
+<!--  
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">main_image</label>
+  <div class="col-md-4">
+    <input id="filebutton" name="filebutton" class="input-file" type="file">
+  </div>
+</div>
+File Button 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton">auxiliary_images</label>
+  <div class="col-md-4">
+    <input id="filebutton" name="filebutton" class="input-file" type="file">
+  </div>
+</div> -->
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+  </div>
+  </div>
+
+</fieldset>
+</form>
+
+	
+</body>
+</html>

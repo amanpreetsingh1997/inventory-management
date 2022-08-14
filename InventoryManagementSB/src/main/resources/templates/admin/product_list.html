@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thyme.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/js/jquery-3.6.0.js}"></script>
+  </head>
+  <body>
+  
+  	<!-- <h1 align = "center">Select a brand in which you want to add product</h1>
+    <div class="card" style="width: 18rem;">
+  		<img class="card-img-top" src="..." alt="Card image cap">
+  		<div class="card-body">
+    		<h5 class="card-title">APPLE</h5>
+    		<a href="#" class="btn btn-primary">Select</a>
+  		</div>
+	</div> -->
+	
+	<div>
+	<form th:action="@{/admin/search_by_product}" method = "get">
+		<!-- <h1 th:value="${pro.brand_name}"></h1> -->
+		<table class="table">
+  
+  <thead>
+    <tr>
+      <th scope="col">Brand</th>
+      <th scope="col">ProductName</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="editField" th:each="prop : ${products}">
+    	<td th:text="${prop.brand_name}"></td>
+      	<td th:text="${prop.product_name}"></td>
+      	<td th:text="${prop.quantity}"></td>
+      	<td th:text="${prop.price}"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+	</div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+  </body>
+  <!-- <script>
+	  $( ".editField" ).click(function() {
+	      alert($(this).find('td.selectBrand').text());
+	});
+	  
+	  /* function myFunction() {
+		  var value = document.getElementById("selectBrand").innerText;
+	  	  alert(value);
+	  } */
+	  
+  </script> -->
+</html>
